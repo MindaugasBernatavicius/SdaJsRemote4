@@ -33,8 +33,51 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 // events
-function displayDate() {
+// function displayDate() {
+//     document.getElementById("date-paragraph").innerHTML = '<h1>' + Date() + '</h1>';
+// }
+//
+// document.getElementById("my-button").onclick = displayDate;
+document.getElementById("my-button").onclick = () => {
     document.getElementById("date-paragraph").innerHTML = '<h1>' + Date() + '</h1>';
-}
+};
 
-document.getElementById("my-button").onclick = displayDate;
+// Common events:
+// .. onchange	    An HTML element has been changed
+// .. onclick	    The user clicks an HTML element
+// .. onmouseover	The user moves the mouse over an HTML element
+// .. onmouseout	The user moves the mouse away from an HTML element
+// .. onkeydown	The user pushes a keyboard key
+// .. onload	    The browser has finished loading the page
+
+
+
+// EXERCISE:
+// 1. Create a simple HTML with a paragraph (with any text) and two buttons
+// 2. When page loads the paragraph has no color (white with black text)
+// 3. One button makes the text blue, the other makes it red
+
+
+
+
+// SOLUTION
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//         <title>Title</title>
+//         <script>
+//             function colorChangeBlue() {
+//             document.getElementById("paragraph").style.color = "blue";
+//         }
+//             function colorChangeRed() {
+//             document.getElementById("paragraph").style.color = "red";
+//         }
+//         </script>
+// </head>
+// <body>
+// <p id="paragraph">Some text</p>
+// <button onclick="colorChangeBlue()" id="blue">Click me</button>
+// <button onclick="colorChangeRed()" id="red">Click me</button>
+// </body>
+// </html>

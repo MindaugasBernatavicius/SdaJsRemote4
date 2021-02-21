@@ -615,3 +615,55 @@ console.log("Unsorted : " + JSON.stringify(people));
 
 // console.log("Sorted : " + JSON.stringify(people));
 console.log("Reversed : " + JSON.stringify(people.reverse()));
+
+
+
+// Question: in JS we don't need classes to define objects, is that true? YES
+console.log("")
+console.log("___ Quetion: ___");
+console.log(typeof { name: "Jonas" }); // object literal
+console.log(typeof [{}, {}]);
+
+class LogParser {}
+console.log(typeof new LogParser()); // class keyword
+
+function AbstractLogParser() {}
+console.log(typeof new AbstractLogParser()) // constructor functions
+
+// 4th way - using object create
+console.log(typeof Object.create(Object.prototype, { name: { value: "Jonas" } }));
+let jonas = Object.create(Object.prototype, { name: { value: "Jonas", enumerable: true } });
+console.log(JSON.stringify(jonas));
+
+
+
+// Javascript uses what is called PROTOTYPE based inheritance, or prototypical inheritance
+// ... do we use prototypes?
+
+// How to create a new method that all arrays will have, called "last()"
+var arr = ['red', 'green', 'blue'];
+
+// to get the last element we do:
+console.log(arr[arr.length - 1]);
+
+// but what if we wanted to simplify it and use it like this:
+console.log(arr.last);
+
+// js arrays do not have a .last property, but since JS is dynamic we can add it
+Object.defineProperty(arr, 'last', {
+    get: function () {
+        return this[this.length - 1]
+    }
+});
+
+console.log("Last property using assigned property: " + arr.last);
+
+// ... now, in order for all arrays to have this property we can add it to the array prototype
+Object.defineProperty(Array.prototype, 'last', {
+    get: function () {
+        return this[this.length - 1]
+    }
+});
+
+var arr2 = ['red', 'green', 'blue'];
+console.log(arr2.last);
